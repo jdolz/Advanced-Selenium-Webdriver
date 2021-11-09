@@ -12,6 +12,8 @@ public class WelcomePageObject extends BasePageObject {
     private By checkboxesLocator = By.xpath("//*[text()='Checkboxes']");
     private By dropdownLocator = By.xpath("//*[text()='Dropdown']");
     private By javascriptAlertsLocator = By.xpath("//*[text()='JavaScript Alerts']");
+    private By multipleWindowsLocator = By.xpath("//*[text()='Multiple Windows']");
+
 
     public WelcomePageObject(WebDriver driver, Logger log) {
         super(driver, log);
@@ -45,6 +47,12 @@ public class WelcomePageObject extends BasePageObject {
         log.info("Clicking JsAlerts link on Welcome Page");
         click(javascriptAlertsLocator);
         return new JavaScriptAlertsPage(driver, log);
+    }
+
+    public WindowsPage clickMultipleWindowsLink() {
+        log.info("Clicking Multiple Windows link on Welcome Page");
+        click(multipleWindowsLocator);
+        return new WindowsPage(driver, log);
     }
 
 }

@@ -10,7 +10,8 @@ public class WelcomePageObject extends BasePageObject {
 
     private By formAuthenticationLocator = By.xpath("//*[text()='Form Authentication']");
     private By checkboxesLocator = By.xpath("//*[text()='Checkboxes']");
-
+    private By dropdownLocator = By.xpath("//*[text()='Dropdown']");
+    private By javascriptAlertsLocator = By.xpath("//*[text()='JavaScript Alerts']");
 
     public WelcomePageObject(WebDriver driver, Logger log) {
         super(driver, log);
@@ -33,4 +34,17 @@ public class WelcomePageObject extends BasePageObject {
         click(checkboxesLocator);
         return new CheckboxesPage(driver, log);
     }
+
+    public DropdownPage clickDropdownLink() {
+        log.info("Clicking dropdown link on Welcome Page");
+        click(dropdownLocator);
+        return new DropdownPage(driver, log);
+    }
+
+    public JavaScriptAlertsPage clickJsAlertsLink() {
+        log.info("Clicking JsAlerts link on Welcome Page");
+        click(javascriptAlertsLocator);
+        return new JavaScriptAlertsPage(driver, log);
+    }
+
 }

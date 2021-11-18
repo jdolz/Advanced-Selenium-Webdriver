@@ -2,7 +2,7 @@ package com.herokuapp.theinternet.keyPresses;
 
 import com.herokuapp.theinternet.TestUtilities;
 import com.herokuapp.theinternet.pages.KeyPressesPage;
-import com.herokuapp.theinternet.pages.WelcomePageObject;
+import com.herokuapp.theinternet.pages.WelcomePage;
 import org.openqa.selenium.Keys;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -13,7 +13,7 @@ public class KeyPressesTests extends TestUtilities {
     public void keyPressesTests() {
         log.info("Starting KeyPressesTests");
 
-        WelcomePageObject welcomePage = new WelcomePageObject(driver, log);
+        WelcomePage welcomePage = new WelcomePage(driver, log);
         welcomePage.openPage();
 
         KeyPressesPage keyPresses = welcomePage.clickKeyPressesLink();
@@ -32,7 +32,7 @@ public class KeyPressesTests extends TestUtilities {
     public void keyPressesWithActionsTests() {
         log.info("Starting KeyPressesTests");
 
-        WelcomePageObject welcomePage = new WelcomePageObject(driver, log);
+        WelcomePage welcomePage = new WelcomePage(driver, log);
         welcomePage.openPage();
 
         KeyPressesPage keyPresses = welcomePage.clickKeyPressesLink();

@@ -4,7 +4,7 @@ import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class WelcomePageObject extends BasePageObject {
+public class WelcomePage extends BasePageObject {
 
     private String pageUrl = "http://the-internet.herokuapp.com/";
 
@@ -16,9 +16,11 @@ public class WelcomePageObject extends BasePageObject {
     private By iframeLocator = By.xpath("//*[text()='WYSIWYG Editor']");
     private By keyPressesLocator = By.xpath("//*[text()='Key Presses']");
     private By fileUploaderLocator = By.xpath("//*[text()='File Upload']");
+    private By dragAndDropLocator = By.xpath("//*[text()='Drag and Drop']");
+    private By hoversLocator = By.xpath("//*[text()='Hovers']");
 
 
-    public WelcomePageObject(WebDriver driver, Logger log) {
+    public WelcomePage(WebDriver driver, Logger log) {
         super(driver, log);
     }
 
@@ -74,6 +76,18 @@ public class WelcomePageObject extends BasePageObject {
         log.info("Clicking fileUploader link on Welcome Page");
         click(fileUploaderLocator);
         return new FileUploaderPage(driver, log);
+    }
+
+    public DragAndDropPage clickDragAndDropLink() {
+        log.info("Clicking dragAndDrop link on Welcome Page");
+        click(dragAndDropLocator);
+        return new DragAndDropPage(driver, log);
+    }
+
+    public HoversPage clickHoversLink() {
+        log.info("Clicking hovers link on Welcome Page");
+        click(hoversLocator);
+        return new HoversPage(driver, log);
     }
 
 }

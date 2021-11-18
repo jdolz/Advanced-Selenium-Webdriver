@@ -2,9 +2,7 @@ package com.herokuapp.theinternet.iFrames;
 
 import com.herokuapp.theinternet.TestUtilities;
 import com.herokuapp.theinternet.pages.IframePage;
-import com.herokuapp.theinternet.pages.NewWindowPage;
-import com.herokuapp.theinternet.pages.WelcomePageObject;
-import com.herokuapp.theinternet.pages.WindowsPage;
+import com.herokuapp.theinternet.pages.WelcomePage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -14,8 +12,10 @@ public class IframeTests extends TestUtilities {
     public void iframeTests() {
         log.info("Starting IframeTests");
 
-        WelcomePageObject welcomePage = new WelcomePageObject(driver, log);
+        WelcomePage welcomePage = new WelcomePage(driver, log);
         welcomePage.openPage();
+
+        welcomePage.scrollToBottom();
 
         IframePage iframe = welcomePage.clickIframeLink();
 

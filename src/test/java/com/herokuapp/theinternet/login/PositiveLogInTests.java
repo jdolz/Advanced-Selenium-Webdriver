@@ -24,7 +24,7 @@ public class PositiveLogInTests extends TestUtilities {
 
         // verifications
         // new url
-        Assert.assertEquals(secureArea.currentUrl(), secureArea.getPageUrl());
+        Assert.assertEquals(secureArea.getCurrentUrl(), secureArea.getPageUrl());
 
         // log out button is visible
         Assert.assertTrue(secureArea.isLogOutButtonVisible(), "logOutButton is not visible.");

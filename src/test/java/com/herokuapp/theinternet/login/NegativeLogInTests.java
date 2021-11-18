@@ -24,7 +24,7 @@ public class NegativeLogInTests extends TestUtilities {
         loginPage.logIn(username, password);
 
         // Verification
-        Assert.assertEquals(loginPage.currentUrl(), loginPage.getPageUrl());
+        Assert.assertEquals(loginPage.getCurrentUrl(), loginPage.getPageUrl());
 
         String actualErrorMessage = loginPage.getMessage();
         Assert.assertTrue(actualErrorMessage.contains(expectedErrorMessage),

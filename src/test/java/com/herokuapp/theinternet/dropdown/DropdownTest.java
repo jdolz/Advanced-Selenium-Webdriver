@@ -17,7 +17,7 @@ public class DropdownTest extends TestUtilities {
 
         DropdownPage dropdownPage = welcomePage.clickDropdownLink();
 
-        Assert.assertEquals(dropdownPage.currentUrl(), dropdownPage.getPageUrl());
+        Assert.assertEquals(dropdownPage.getCurrentUrl(), dropdownPage.getPageUrl());
 
         dropdownPage.selectOption(2);
 

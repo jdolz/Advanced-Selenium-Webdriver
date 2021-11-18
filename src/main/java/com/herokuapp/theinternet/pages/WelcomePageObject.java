@@ -13,6 +13,9 @@ public class WelcomePageObject extends BasePageObject {
     private By dropdownLocator = By.xpath("//*[text()='Dropdown']");
     private By javascriptAlertsLocator = By.xpath("//*[text()='JavaScript Alerts']");
     private By multipleWindowsLocator = By.xpath("//*[text()='Multiple Windows']");
+    private By iframeLocator = By.xpath("//*[text()='WYSIWYG Editor']");
+    private By keyPressesLocator = By.xpath("//*[text()='Key Presses']");
+    private By fileUploaderLocator = By.xpath("//*[text()='File Upload']");
 
 
     public WelcomePageObject(WebDriver driver, Logger log) {
@@ -53,6 +56,24 @@ public class WelcomePageObject extends BasePageObject {
         log.info("Clicking Multiple Windows link on Welcome Page");
         click(multipleWindowsLocator);
         return new WindowsPage(driver, log);
+    }
+
+    public IframePage clickIframeLink() {
+        log.info("Clicking iframe link on Welcome Page");
+        click(iframeLocator);
+        return new IframePage(driver, log);
+    }
+
+    public KeyPressesPage clickKeyPressesLink() {
+        log.info("Clicking keyPresses link on Welcome Page");
+        click(keyPressesLocator);
+        return new KeyPressesPage(driver, log);
+    }
+
+    public FileUploaderPage clickFileUploaderLink() {
+        log.info("Clicking fileUploader link on Welcome Page");
+        click(fileUploaderLocator);
+        return new FileUploaderPage(driver, log);
     }
 
 }

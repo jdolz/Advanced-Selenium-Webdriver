@@ -17,7 +17,7 @@ public class AlertsTests extends TestUtilities {
 
         JavaScriptAlertsPage javaScriptAlerts = welcomePage.clickJsAlertsLink();
 
-        Assert.assertEquals(javaScriptAlerts.currentUrl(), javaScriptAlerts.getPageUrl());
+        Assert.assertEquals(javaScriptAlerts.getCurrentUrl(), javaScriptAlerts.getPageUrl());
 
         javaScriptAlerts.openJsAlert();
 
@@ -43,7 +43,7 @@ public class AlertsTests extends TestUtilities {
 
         JavaScriptAlertsPage javaScriptAlerts = welcomePage.clickJsAlertsLink();
 
-        Assert.assertEquals(javaScriptAlerts.currentUrl(), javaScriptAlerts.getPageUrl());
+        Assert.assertEquals(javaScriptAlerts.getCurrentUrl(), javaScriptAlerts.getPageUrl());
 
         javaScriptAlerts.openJsConfirm();
 
@@ -76,7 +76,7 @@ public class AlertsTests extends TestUtilities {
 
         JavaScriptAlertsPage javaScriptAlerts = welcomePage.clickJsAlertsLink();
 
-        Assert.assertEquals(javaScriptAlerts.currentUrl(), javaScriptAlerts.getPageUrl());
+        Assert.assertEquals(javaScriptAlerts.getCurrentUrl(), javaScriptAlerts.getPageUrl());
 
         javaScriptAlerts.openJsPrompt();
 

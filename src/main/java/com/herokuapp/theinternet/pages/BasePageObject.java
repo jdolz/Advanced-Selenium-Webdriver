@@ -2,6 +2,7 @@ package com.herokuapp.theinternet.pages;
 
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -25,12 +26,16 @@ public class BasePageObject {
         driver.get(url);
     }
 
-    public String currentUrl() {
+    public String getCurrentUrl() {
         return driver.getCurrentUrl();
     }
 
     public String getCurrentPageTitle() {
         return driver.getTitle();
+    }
+
+    public String getCurrentPageSource() {
+        return driver.getPageSource();
     }
 
     protected WebElement find(By locator) {
@@ -101,5 +106,17 @@ public class BasePageObject {
         }
     }
 
+    protected void switchToFrame(By locator) {
+        driver.switchTo().frame(find(locator));
+    }
+
+    protected void pressKey(By locator, Keys key) {
+        find(locator).sendKeys(key);
+    }
+
+    public void pressKeyWithActions(Keys key) {
+        Actions action = new Actions(driver);
+        action.sendKeys(key).build().perform();
+    }
 
 }

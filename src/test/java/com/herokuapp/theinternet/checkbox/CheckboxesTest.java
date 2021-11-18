@@ -17,7 +17,7 @@ public class CheckboxesTest extends TestUtilities {
 
         CheckboxesPage checkboxesPage = welcomePage.clickCheckboxesLink();
 
-        Assert.assertEquals(checkboxesPage.currentUrl(), checkboxesPage.getPageUrl());
+        Assert.assertEquals(checkboxesPage.getCurrentUrl(), checkboxesPage.getPageUrl());
 
         checkboxesPage.selectAllCheckboxes();
 

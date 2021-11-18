@@ -1,7 +1,6 @@
 package com.herokuapp.theinternet.window;
 
 import com.herokuapp.theinternet.TestUtilities;
-import com.herokuapp.theinternet.pages.JavaScriptAlertsPage;
 import com.herokuapp.theinternet.pages.NewWindowPage;
 import com.herokuapp.theinternet.pages.WelcomePageObject;
 import com.herokuapp.theinternet.pages.WindowsPage;
@@ -19,13 +18,14 @@ public class WindowsTests extends TestUtilities {
 
         WindowsPage windows = welcomePage.clickMultipleWindowsLink();
 
-        Assert.assertEquals(windows.currentUrl(), windows.getPageUrl());
+        Assert.assertEquals(windows.getCurrentUrl(), windows.getPageUrl());
 
         windows.openNewWindow();
 
         NewWindowPage newPage = windows.switchToNewWindowPage();
 
-        log.info("Hey " + newPage.getWindowText());
-        Assert.assertTrue(newPage.getWindowText().equals("New Window"));
+        String pageSource = newPage.getCurrentPageSource();
+
+        Assert.assertTrue(pageSource.contains("New Window"));
     }
 }

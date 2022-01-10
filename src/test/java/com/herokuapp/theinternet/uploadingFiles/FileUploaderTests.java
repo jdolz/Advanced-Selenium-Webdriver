@@ -8,9 +8,9 @@ import org.testng.annotations.Test;
 
 public class FileUploaderTests extends TestUtilities {
 
-    @Test
-    public void fileUploaderTests() {
-        log.info("Starting FileUploaderTests");
+    @Test(dataProvider ="files")
+    public void fileUploaderTests(int testNum, String fileName) {
+        log.info("Starting FileUploaderTests number: " + testNum);
 
         WelcomePage welcomePage = new WelcomePage(driver, log);
         welcomePage.openPage();
@@ -19,13 +19,13 @@ public class FileUploaderTests extends TestUtilities {
 
         Assert.assertEquals(fileUploader.getCurrentUrl(), fileUploader.getPageUrl());
 
-        fileUploader.selectFile("meme.png");
+        fileUploader.selectFile(fileName);
 
         fileUploader.pushUploadButton();
 
         String editorText = fileUploader.getUploadedFilesNames();
 
-        Assert.assertEquals(editorText, "meme.png");
+        Assert.assertEquals(editorText, fileName);
 
 
     }

@@ -5,12 +5,14 @@ import com.herokuapp.theinternet.pages.JavaScriptAlertsPage;
 import com.herokuapp.theinternet.pages.WelcomePage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 
 public class AlertsTests extends TestUtilities {
 
     @Test
     public void jsAlertTest() {
         log.info("Starting jsAlertTest");
+        SoftAssert softAssert = new SoftAssert();
 
         WelcomePage welcomePage = new WelcomePage(driver, log);
         welcomePage.openPage();
@@ -27,10 +29,10 @@ public class AlertsTests extends TestUtilities {
 
         String result = javaScriptAlerts.getResultText();
 
-        Assert.assertTrue(alertMessage.equals("I am a JS Alert"));
+        softAssert.assertTrue(alertMessage.equals("I am a JS Alert"));
 
-        Assert.assertTrue(result.equals("You successfully clicked an alert"));
-
+        softAssert.assertTrue(result.equals("You successfully clicked an alert"));
+        softAssert.assertAll();
     }
 
 

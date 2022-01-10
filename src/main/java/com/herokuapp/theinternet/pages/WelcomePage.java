@@ -18,6 +18,7 @@ public class WelcomePage extends BasePageObject {
     private By fileUploaderLocator = By.xpath("//*[text()='File Upload']");
     private By dragAndDropLocator = By.xpath("//*[text()='Drag and Drop']");
     private By hoversLocator = By.xpath("//*[text()='Hovers']");
+    private By slidersLocator = By.xpath("//*[text()='Horizontal Slider']");
 
 
     public WelcomePage(WebDriver driver, Logger log) {
@@ -88,6 +89,12 @@ public class WelcomePage extends BasePageObject {
         log.info("Clicking hovers link on Welcome Page");
         click(hoversLocator);
         return new HoversPage(driver, log);
+    }
+
+    public SlidersPage clickSlidersLink() {
+        log.info("Clicking sliders link on Welcome Page");
+        click(slidersLocator);
+        return new SlidersPage(driver, log);
     }
 
 }

@@ -8,7 +8,7 @@ import org.testng.annotations.*;
 
 import java.lang.reflect.Method;
 
-
+@Listeners({com.herokuapp.theinternet.TestListener.class})
 public class BaseTest {
 
     protected WebDriver driver;
@@ -18,15 +18,21 @@ public class BaseTest {
     protected String testName;
     protected String testMethodName;
 
-    @Parameters({"browser"})
+    @Parameters({"browser", "chromeProfile", "deviceName"})
     @BeforeMethod(alwaysRun = true)
-    public void setUp(Method method, @Optional("chrome") String browser, ITestContext context) {
+    public void setUp(Method method, @Optional("chrome") String browser, @Optional String profile, @Optional String deviceName, ITestContext context) {
         String testName = context.getCurrentXmlTest().getName();
         log = LogManager.getLogger(testName);
 
         BrowserDriverFactory driverFactory = new BrowserDriverFactory(browser, log);
 
-        driver = driverFactory.createDriver();
+        if (profile != null) {
+            driver = driverFactory.createChromeWithProfile(profile);
+        } else if (deviceName != null) {
+            driver = driverFactory.createChromeWithMobileEmulation(deviceName);
+        } else {
+            driver = driverFactory.createDriver();
+        }
 
         driver.manage().window().maximize();
 
